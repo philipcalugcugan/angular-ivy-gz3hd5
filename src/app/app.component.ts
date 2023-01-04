@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   isStarted: boolean;
   timeInterval: number;
   iisLocationList: IisLocationData[];
-  timer = null;
+  timer: any;
 
   constructor(private iisLocationService: IisLocationService) {}
 
@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
     this.isStarted = false;
     this.timeInterval = 0;
     this.iisLocationList = [];
+    this.timer = null;
   }
 
   /**
