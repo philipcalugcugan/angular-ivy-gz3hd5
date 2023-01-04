@@ -1,6 +1,6 @@
 import { Component, OnInit, VERSION } from '@angular/core';
-import { IisLocationData } from '../interface/iis-location-data';
-import { IisLocationService } from '../service/iis-location-service/iis-location.service';
+import { IssLocationData } from '../interface/iss-location-data';
+import { IssLocationService } from '../service/iss-location-service/iss-location.service';
 
 @Component({
   selector: 'my-app',
@@ -11,10 +11,10 @@ export class AppComponent implements OnInit {
   actionName: string;
   isStarted: boolean;
   timeInterval: number;
-  iisLocationList: IisLocationData[];
+  iisLocationList: IssLocationData[];
   timer: any;
 
-  constructor(private iisLocationService: IisLocationService) {}
+  constructor(private issLocationService: IssLocationService) {}
 
   /**
    * On Initialize
@@ -49,15 +49,15 @@ export class AppComponent implements OnInit {
     if (this.timeInterval > 0) {
       this.timer = setInterval(() => {
         // Call the service to get the IIS Location now
-        this.iisLocationService.getIisLocation().subscribe((res) => {
+        this.issLocationService.getIisLocation().subscribe((res) => {
           if (res) {
-            let iisLocationData: IisLocationData = {
+            let issLocationData: IssLocationData = {
               date: new Date().toISOString(),
               altitude: res.altitude.toFixed(2),
               velocity: res.velocity.toFixed(2),
               daynum: res.daynum.toFixed(2),
             };
-            this.iisLocationList.push(iisLocationData);
+            this.iisLocationList.push(issLocationData);
           }
         });
       }, this.timeInterval * 1000);

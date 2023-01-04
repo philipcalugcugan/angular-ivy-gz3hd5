@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class IisLocationService {
+export class IssLocationService {
   public baseUrl = 'https://api.wheretheiss.at/v1/satellites/25544'; // Data
 
   constructor(private httpClient: HttpClient) {}
