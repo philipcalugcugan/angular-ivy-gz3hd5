@@ -16,6 +16,9 @@ export class AppComponent implements OnInit {
 
   constructor(private iisLocationService: IisLocationService) {}
 
+  /**
+   * On Initialize
+   */
   ngOnInit() {
     this.actionName = 'Start';
     this.isStarted = false;
@@ -23,6 +26,9 @@ export class AppComponent implements OnInit {
     this.iisLocationList = [];
   }
 
+  /**
+   * Trigger this method when Start/Stop button is clicked
+   */
   public clickAction() {
     if (this.isStarted) {
       this.actionName = 'Start';
@@ -31,19 +37,19 @@ export class AppComponent implements OnInit {
     } else {
       this.actionName = 'Stop';
       this.isStarted = true;
-
-      // Start timer
       this.startTimer();
     }
   }
 
+  /**
+   * Start Timer
+   */
   public startTimer() {
     if (this.timeInterval > 0) {
       this.timer = setInterval(() => {
+        // Call the service to get the IIS Location now
         this.iisLocationService.getIisLocation().subscribe((res) => {
           if (res) {
-            console.log('timeInterval :' + this.timeInterval);
-            console.log(res);
             let iisLocationData: IisLocationData = {
               date: new Date().toISOString(),
               altitude: res.altitude.toFixed(2),
@@ -57,6 +63,9 @@ export class AppComponent implements OnInit {
     }
   }
 
+  /**
+   * Stop Timer
+   */
   public stopTimer() {
     if (this.timer) {
       clearInterval(this.timer);

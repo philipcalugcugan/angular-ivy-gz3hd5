@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class IisLocationService {
-  public baseUrl = 'https://api.wheretheiss.at/v1/satellites/25544';
+  public baseUrl = 'https://api.wheretheiss.at/v1/satellites/25544'; // Data
 
   constructor(private httpClient: HttpClient) {}
 
