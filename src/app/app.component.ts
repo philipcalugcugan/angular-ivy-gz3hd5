@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   actionName: string;
   isStarted: boolean;
   timeInterval: number;
-  iisLocationList: IssLocationData[];
+  issLocationList: IssLocationData[];
   timer: any;
 
   constructor(private issLocationService: IssLocationService) {}
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     this.actionName = 'Start';
     this.isStarted = false;
     this.timeInterval = 0;
-    this.iisLocationList = [];
+    this.issLocationList = [];
     this.timer = null;
   }
 
@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
               velocity: res.velocity.toFixed(2),
               daynum: res.daynum.toFixed(2),
             };
-            this.iisLocationList.push(issLocationData);
+            this.issLocationList.push(issLocationData);
           }
         });
       }, this.timeInterval * 1000);
