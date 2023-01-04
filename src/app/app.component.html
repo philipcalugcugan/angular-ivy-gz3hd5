@@ -1,4 +1,37 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<button type="button" (click)="clickAction()">{{ actionName }}</button>
+<div>
+  <label> Timer Interval </label>
+  <input
+    id="timeInterval"
+    name="timeInterval"
+    type="number"
+    [(ngModel)]="timeInterval"
+  />
+</div>
+<div>
+  <table border="1" style="text-align: center">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Altitude</th>
+        <th>Velocity</th>
+        <th>Day Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of iisLocationList">
+        <td>{{ row.date }}</td>
+
+        <td>
+          {{ row.altitude }}
+        </td>
+        <td>
+          {{ row.velocity }}
+        </td>
+        <td>
+          {{ row.daynum }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
